@@ -1,0 +1,53 @@
+package com.pixelo.health.wellplatefoodnutrientbatch.integratedfoodnutrient.dto;
+
+import lombok.Builder;
+
+@Builder
+public record IntegratedFoodNutrientFileDto(
+        String foodCd,
+        String foodNm,
+        String dataCd,
+        String typeNm,
+        String nutConSrtrQua,
+        String enerc,
+        String water,
+        String prot,
+        String fatce,
+        String ash,
+        String chocdf,
+        String sugar,
+        String fibtg,
+        String ca,
+        String fe,
+        String p,
+        String k,
+        String nat,
+        String vitaRae,
+        String retol,
+        String cartb,
+        String thia,
+        String ribf,
+        String nia,
+        String vitc,
+        String vitd,
+        String chole,
+        String fasat,
+        String fatrn,
+        String refuse,
+        String srcCd,
+        String srcNm,
+        String foodSize,
+        String imptYn,
+        String cooCd,
+        String cooNm,
+        String itemMnftrRptNo,
+        String companyNm,
+        String mkrNm,
+        String imptrNm,
+        String rtlBzentyNm,
+        String dataProdCd,
+        String dataProdNm,
+        String crtYmd,
+        String crtrYmd
+) {
+}

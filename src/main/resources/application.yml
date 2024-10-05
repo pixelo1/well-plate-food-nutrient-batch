@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: well-plate-food-nutrient-batch
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:${rdb.engine}://${rdb.host}:${rdb.port}/${rdb.dbname}"
+    username: "${rdb.username}"
+    password: "${rdb.password}"
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+        format_sql: true
+        show_sql:
+          use_sql_comments: ${logging.default-show-sql}
+          use_jdbc_metadata_defaults: ${logging.default-show-sql}
+  flyway:
+    enabled: true
+    create-schemas: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    out-of-order: true
+    default-schema: public # flyway public 스키마를 사용
+  batch:
+    job:
+      name: ${job.name:integratedFoodNutrientJob}
+      enabled: true
+
+logging:
+  pattern:
+    correlation: "[%X{traceId:-} %X{spanId:-}] "
+
+---
+spring:
+  config:
+    import:
+      - classpath:parameters/db/db.yml
